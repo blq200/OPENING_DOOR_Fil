@@ -36,8 +36,8 @@
     
         <section class="section">
         <ul>
-        <button class="btn btn-outline-light" type="submit"><a href="../openingdoors/inscription/login_form.php"> LOG IN </a></button>
-        <button class="btn btn-outline-light" type="submit"><a href="../openingdoors/inscription/signup_form.php"> SIGN IN </a></button>
+        <button class="btn btn-outline" type="submit"><a id="a" href="../openingdoors/inscription/login_form.php"> LOG IN </a></button>
+        <button class="btn btn-outline" type="submit"><a id="a" href="../openingdoors/inscription/signup_form.php"> SIGN IN </a></button>
         </ul>
         </section>
 
