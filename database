@@ -1,0 +1,209 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.0
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Jun 24, 2022 at 12:51 PM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.1.6
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `opening_doors`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `bailleur`
+--
+
+CREATE TABLE `bailleur` (
+  `id bailleur` int(10) UNSIGNED NOT NULL,
+  `Nom` varchar(255) NOT NULL,
+  `Prénom` varchar(255) NOT NULL,
+  `Adresse` varchar(255) NOT NULL,
+  `Numéro de télèphone` varchar(255) NOT NULL,
+  `Email` varchar(255) NOT NULL,
+  `Mot de Pass` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `customer`
+--
+
+CREATE TABLE `customer` (
+  `id_customer` int(10) UNSIGNED NOT NULL,
+  `nom` varchar(255) NOT NULL,
+  `prénom` varchar(255) NOT NULL,
+  `adress` varchar(255) NOT NULL,
+  `numéro` varchar(255) NOT NULL,
+  `mail` varchar(255) NOT NULL,
+  `motpass` varchar(255) NOT NULL,
+  `confirmer` varchar(255) NOT NULL,
+  `user_type` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `customer`
+--
+
+INSERT INTO `customer` (`id_customer`, `nom`, `prénom`, `adress`, `numéro`, `mail`, `motpass`, `confirmer`, `user_type`) VALUES
+(1, 'Rania', 'Elbalq', 'lala chafia', '0771277355', 'r.elbalqa@gmail.com', '202cb962ac59075b964b07152d234b70', '202cb962ac59075b964b07152d234b70', 'user'),
+(2, 'Chaimae', 'Boukhana', 'hdkjcnjk', '00000000029292952', 'chaimae@gmail.com', '202cb962ac59075b964b07152d234b70', '202cb962ac59075b964b07152d234b70', 'admin'),
+(3, 'Hamza', 'Alaoui', 'khcxlk', '11111111111', 'hamza@gmail.com', '202cb962ac59075b964b07152d234b70', '202cb962ac59075b964b07152d234b70', 'user'),
+(4, 'Hossine', 'eddahbi', 'boukhalf', '00000000000000', 'hossine@gmail.com', '202cb962ac59075b964b07152d234b70', '202cb962ac59075b964b07152d234b70', 'user'),
+(5, 'hh', 'hh', 'h8UIJU', '0541654684', 'h@h.com', '670b14728ad9902aecba32e22fa4f6bd', '670b14728ad9902aecba32e22fa4f6bd', 'user'),
+(6, 'amine', 'tassouka', 'Marrakech', '00000000000', 'amine@gmail.com', '202cb962ac59075b964b07152d234b70', '202cb962ac59075b964b07152d234b70', 'admin'),
+(7, 'abdrahman', 'slimani', 'iekds', '99999999', 'a@b.com', '202cb962ac59075b964b07152d234b70', '202cb962ac59075b964b07152d234b70', 'user'),
+(8, 'hamid ', 'ftouaki', 'hjhkjh', '4684654654654', 't@t.com', '81dc9bdb52d04dc20036dbd8313ed055', '81dc9bdb52d04dc20036dbd8313ed055', 'user'),
+(9, 'zouini', 'Wafae', 'val flori', '00000000000', 'w@z.com', '202cb962ac59075b964b07152d234b70', '202cb962ac59075b964b07152d234b70', 'user');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `locataire`
+--
+
+CREATE TABLE `locataire` (
+  `id locataire` int(10) UNSIGNED NOT NULL,
+  `Nom` varchar(255) NOT NULL,
+  `Prénom` varchar(255) NOT NULL,
+  `Numéro de télèphone` varchar(255) NOT NULL,
+  `Email` varchar(255) NOT NULL,
+  `Mot de Pass` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `location`
+--
+
+CREATE TABLE `location` (
+  `id location` int(10) UNSIGNED NOT NULL,
+  `Place` varchar(255) NOT NULL,
+  `ddebut` datetime NOT NULL,
+  `dfin` datetime NOT NULL,
+  `location_type` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `location`
+--
+
+INSERT INTO `location` (`id location`, `Place`, `ddebut`, `dfin`, `location_type`) VALUES
+(1, 'Chefchaoun', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'chefchaoun'),
+(2, 'Toronto', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'toronto');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `maison`
+--
+
+CREATE TABLE `maison` (
+  `id_maison` int(10) UNSIGNED NOT NULL,
+  `maison_nom` varchar(255) NOT NULL,
+  `Adress` varchar(255) NOT NULL,
+  `Description` text NOT NULL,
+  `Prix` decimal(8,2) NOT NULL,
+  `Superficie` int(11) NOT NULL,
+  `image_01` varchar(254) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `maison`
+--
+
+INSERT INTO `maison` (`id_maison`, `maison_nom`, `Adress`, `Description`, `Prix`, `Superficie`, `image_01`) VALUES
+(33, 'Rania\'s house', 'Cefchaouen', 'Home', '788888.00', 788888, 'https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/193935181.jpg?k=e71fc029c38fc2aa0662118b9777fc41b8ee516a739eef0ddd7d0e8d5d5db5ab&o=&hp=1'),
+(34, 'Shaimae\'s home', 'Chefchaouen', 'Apartment', '470.00', 50, 'https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/166685283.jpg?k=a107d589e6e4c2f36772c6c8156c4dc2fd3836ec44b032314ff13e49c40f36fc&o=&hp=1)'),
+(35, 'Hossine\'s home', 'Chefchaouen', 'Home', '200.00', 30, 'https://t-cf.bstatic.com/xdata/images/hotel/max300/136254666.jpg?k=c5541f607746381df495d21f411fc62342d9f3dbc7cee1e67bae407332da9fec&o=&hp=1)'),
+(36, 'Hamza\'s home', 'Chefchaouen', 'Apartment', '490.00', 70, 'https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/177151585.jpg?k=4e54f4b3957f2607ffe610d9b51fca8b19e751fd53d69d60494aac62eabd2cb1&o=&hp=1)'),
+(37, 'Wafae\'s home', 'Chefchaouen', 'Home', '500.00', 90, 'https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/356745501.jpg?k=9665d01ba808552a67575d61a16cce1000190e587d31addaa5bd29f2240fcd50&o=&hp=1)'),
+(38, 'Mariam\'s home', 'Chefchaouen', 'Apartment', '200.00', 30, 'https://t-cf.bstatic.com/xdata/images/hotel/max300/30921934.jpg?k=fe4e05ce3d7c32c50d19a9b33232a01b83f93d79ce4546785e950fe70444a9dc&o=&hp=1)');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `bailleur`
+--
+ALTER TABLE `bailleur`
+  ADD PRIMARY KEY (`id bailleur`);
+
+--
+-- Indexes for table `customer`
+--
+ALTER TABLE `customer`
+  ADD PRIMARY KEY (`id_customer`);
+
+--
+-- Indexes for table `locataire`
+--
+ALTER TABLE `locataire`
+  ADD PRIMARY KEY (`id locataire`);
+
+--
+-- Indexes for table `location`
+--
+ALTER TABLE `location`
+  ADD PRIMARY KEY (`id location`);
+
+--
+-- Indexes for table `maison`
+--
+ALTER TABLE `maison`
+  ADD PRIMARY KEY (`id_maison`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `bailleur`
+--
+ALTER TABLE `bailleur`
+  MODIFY `id bailleur` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `customer`
+--
+ALTER TABLE `customer`
+  MODIFY `id_customer` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `locataire`
+--
+ALTER TABLE `locataire`
+  MODIFY `id locataire` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `location`
+--
+ALTER TABLE `location`
+  MODIFY `id location` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `maison`
+--
+ALTER TABLE `maison`
+  MODIFY `id_maison` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
